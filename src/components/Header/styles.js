@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#9DB5B2',
+        backgroundColor: '#05668D',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
         position: 'relative',
     },
     text: {
-        color: '#878E99',
+        color: '#EBF2FA',
         fontSize: 30,
         textAlign: 'center',
-    }
+    },
 })
 
 export default styles

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
+import AlbumItem from '../AlbumItem'
 import axios from 'axios'
 
 class AlbumList extends Component {
     state = {
-        albums: []
+        albums: [],
     }
 
     componentDidMount () {
@@ -16,10 +17,17 @@ class AlbumList extends Component {
             })
     }
 
+    renderAlbums = () => (
+        <AlbumItem
+            albums={this.state.albums}
+        />
+    )
+
     render() {
+        console.log(this.state.albums)
         return (
             <View>
-                <Text>Album list!</Text>
+                {this.renderAlbums()}
             </View>
         )
     }

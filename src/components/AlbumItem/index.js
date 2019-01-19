@@ -1,20 +1,35 @@
 import React, { PureComponent } from 'react'
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, Linking, Image } from 'react-native'
+import Button from '../Button'
+import Card from '../Card';
+import CardSection from '../CardSection';
+import ArtistCard from '../ArtistCard';
 import styles from './styles'
 
 class AlbumItem extends PureComponent {
     _keyExtractor = (item) => item.title
 
+    openLink = (url) => Linking.openURL(url)
+
     renderItem = (item) => (
-        <View
-            style={styles.container}
-        >
-            <Text>{item.title}</Text>
-            <Text>{item.artist}</Text>
-            <Text>{item.image}</Text>
-            <Text>{item.thumbnail_image}</Text>
-            <Text>{item.url}</Text>
-        </View>
+        <Card>
+            <ArtistCard
+                thumb={item.thumbnail_image}
+                title={item.title}
+                artist={item.artist}
+            />
+            <CardSection>
+                <Image
+                    style={styles.imageStyle}
+                    source={{ uri: item.image }}
+                />
+            </CardSection>
+            <Button
+                onPress={() => this.openLink(item.url)}
+                text="Buy now!"
+            />
+        </Card>
+            
     )
 
     render = () =>
